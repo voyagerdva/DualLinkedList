@@ -14,8 +14,9 @@ public class DualLinkList extends LinkList implements InterfaceDualList {
         public InterfaceDualItem getPrevious() {
             return previous;
         }
-
     }
+
+//==================================================================================
 
     @Override
     public void add(String data) {
@@ -24,10 +25,11 @@ public class DualLinkList extends LinkList implements InterfaceDualList {
 
     @Override
     protected InterfaceItem createNode(String data) {
-        if (super.getTail() == null)
+        if (super.getTail() == null) {
             return new DualLinkList.DualNode(data, (DualNode) null, (DualNode) null);
-        else
+        } else {
             return new DualLinkList.DualNode(data, (DualNode) null, (DualNode) getHead());
+        }
     }
 
     @Override
@@ -36,20 +38,8 @@ public class DualLinkList extends LinkList implements InterfaceDualList {
         return list3;
     }
 
-//    @Override
     protected InterfaceDualList createList() {
         return new DualLinkList();
-    }
-
-
-    @Override
-    public InterfaceDualList getSubList(int position, int number) {
-        InterfaceDualList list = new DualLinkList();
-
-        InterfaceItem ref = this.getTail();
-
-
-        return list;
     }
 
     @Override
@@ -67,12 +57,17 @@ public class DualLinkList extends LinkList implements InterfaceDualList {
 
     }
 
+//===================================================================================
 
 
+    @Override
+    public InterfaceDualList getSubList(int position, int number) {
+        InterfaceDualList list = new DualLinkList();
+
+        InterfaceItem ref = this.getTail();
 
 
-
-
-
+        return list;
+    }
 
 }
